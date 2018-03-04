@@ -1,0 +1,2 @@
+1. Display illumination control.
+2. Battery charge monitor.
