@@ -28,7 +28,7 @@ PowerPortNamesTakePriority=0
 PushECOToAnnotationFile=1
 DItemRevisionGUID=
 ReportSuppressedErrorsInMessages=0
-OutputPath=Project Outputs for slider_V01
+OutputPath=
 LogFolderPath=
 ManagedProjectGUID=
 
@@ -151,7 +151,7 @@ SCH_ShowNote=-1
 SCH_ShowNoteCollapsed=-1
 
 [Generic_EDE]
-OutputDir=Project Outputs for slider_V01
+OutputDir=
 
 [OutputGroup1]
 Name=Netlist Outputs
