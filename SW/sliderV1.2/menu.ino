@@ -52,7 +52,7 @@ void on_steplessmotion_start(MenuItem* p_menu_item)    // dorobit shutter
 
   LCD.position(2, 2);
   LCD.string("WAIT!           ");
-
+  analogWrite(LED_PIN, 0);/////////////backlight pokus
   if (steplessmotion_speed < 10) {
     LCD.position(2, 2);
     LCD.string("speed to low    ");
@@ -181,7 +181,7 @@ void on_timelapse_start(MenuItem* p_menu_item)
   if (pause_time >= 0.1 and steps_for_step > 0) {    // protection from wrong time constants and step_length = 0mm  (pause_time >= 1) 
     LCD.position(2, 2);
     LCD.string("WAIT!           ");   
-
+    analogWrite(LED_PIN, 0);//////////////////////////////
     while (1) {
 
       shutter_DRV(shutter);

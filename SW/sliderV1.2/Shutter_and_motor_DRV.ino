@@ -25,7 +25,7 @@ void break_by_button(void) {
       if (delay_button_counter > 1000) {           // function for the delay reaction to button event  1000
         LCD.position(2, 2);
         LCD.string("STOPED!         ");
-
+        
         if (timelapse_rts == true) {               // switch direction when "return to start" setting is "YES" 
           DIR_PIN_state = DIR_PIN_state ^ 1;
         }
@@ -41,6 +41,7 @@ void break_by_button(void) {
       LCD.string("STOP?           ");             
       break_once_flag = true;
       break_flag = false;
+     
     }
   }
   else {
@@ -100,7 +101,7 @@ void shutter_DRV(unsigned long shutter_time) {
   while (time_counter <= shutter_time*konstant) {
 
     if (IsrFlag == true) {
-
+     
       time_counter++;
       IsrFlag = false;
 
@@ -172,7 +173,7 @@ void pause_DRV(float pause_time) {
 //----------------------MOTOR DRIVER--------------------------------------------------
 //------------------------------------------------------------------------------------
 void motor_DRV(unsigned long steps, short start_duty, short end_duty, short speedy) {
-
+  
   sensor_break_flag = false;
   steps_FN_total = 0;
   digitalWrite(DIR_PIN, DIR_PIN_state);
@@ -241,12 +242,14 @@ void motor_DRV(unsigned long steps, short start_duty, short end_duty, short spee
     if (stepsFN > 200) {                                                 // protection from stopping imediatly after start motor routine
       break_by_button();
       if (break_flag == true) {
+        analogWrite(LED_PIN, 255);//////////////backlight pokus
         break;
       }
     }
     //-----------break by sensor routine-------------------------------------------------------------
     break_by_sensor();
     if (sensor_break_flag == true) {
+      analogWrite(LED_PIN, 255);////////////////backlight pokus
       break;
     }
 
@@ -258,7 +261,7 @@ void motor_DRV(unsigned long steps, short start_duty, short end_duty, short spee
   motor_EN = true;
 
   while (IsrFlag == false) {}
-
+analogWrite(LED_PIN, 255);///////////////backlight pokus
 }
 
 //------------------------------------------------------------------------------------

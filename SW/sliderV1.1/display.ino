@@ -12,7 +12,7 @@ void initialize_display() {
   LCD.define_char(1,symbol_plus_minus);
   LCD.position(1, 1);             //set Position: first line, first character
   LCD.string(" MR_Slider V1.1");
-  LCD.contrast(225); /////////////////////////////////
+  LCD.contrast(223); /////////////////////////////////
   backlight(255);
   delay(100);
 //  ms.display();
